@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <h1> Bienvenido a mi projecto Django </h1>
-    {% for cliente in clientes %}
-        <h2>{{cliebte.nombre}}</h2>
-        <p>{{cliebte.apellido}}</p>
-        <p>{{cliebte.nacimiento}}</p>
-        <p>{{cliebte.pais_origen_id}}</p>
+{% extends 'Home/base.html' %}
+{% block TITULO %}
+    MIS CLIENTES
+{% endblock TITULO %}
+
+{% block CONTENIDO %}
+    {% for Cliente in Cliente %}
+        <h2>{{Cliente.nombre}}</h2>
+        <p>{{Cliente.apellido}}</p>
+        <p>{{Cliente.nacimiento}}</p>
+        <p>{{Cliente.pais_origen_id}}</p>
     {% endfor %}
 
-</body>
-</html>
+    <a href="{% url 'Home:home' %}">Ir al menu principal</a>
+{% endblock CONTENIDO %}
