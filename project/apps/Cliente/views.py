@@ -4,4 +4,6 @@ from .models import Cliente
 
 def home(request):
     Clientes_registros= Cliente.objects.all()
-    return render(request,"index.html", {"Clientes", Clientes_registros})
+    contexto={"clientes": Clientes_registros}
+    return render(request, "Cliente/index.html", contexto)
+    #return render(request,"index.html", {"Cliente", Clientes_registros})
