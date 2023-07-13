@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
-
+from django.http import HttpRequest, HttpResponse
 from .models import Cliente, Pais
+from .forms import ClienteForm
+
+
+
 
 def home(request):
     Clientes_registros= Cliente.objects.all()
@@ -29,3 +33,20 @@ def crear_clientes(request):
     c3.save()
     c4.save()
     return redirect("Cliente:home")
+
+def crear_cliente(request: HttpRequest) -> HttpResponse:
+    if request.method == "POST":
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("Producto:home")
+    else:  # request.method == "GET"
+        form = ClienteForm()
+    return render(request, "Cliente/crear.html", {"form": form})
+
+def busqueda(request: HttpRequest)-> HttpResponse:
+    cliente_nombre=Cliente.objects.filter(nombre__contains="fia")
+    contexto= {
+        "clientes_nombre": cliente_nombre
+    }
+    return render(request,"Cliente/search.html",contexto)
