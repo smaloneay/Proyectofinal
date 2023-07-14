@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
-from .models import Cliente, Pais
+from .models import Cliente
 from .forms import ClienteForm
 
 

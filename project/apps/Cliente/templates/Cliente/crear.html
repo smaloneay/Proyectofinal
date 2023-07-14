@@ -5,7 +5,7 @@
 {% block INDEX_CONTENIDO %}
 
 
-    <center><form action="post" enctype="multipart/form-data"> 
+    <center><form action="post"> 
         {% csrf_token %}
         {{form.as_p}}
         <button class type="submit">Guardar</button>
