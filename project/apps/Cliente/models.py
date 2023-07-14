@@ -6,8 +6,8 @@ class Pais(models.Model):
  
     def __str__(self):
         return self.nombre
-    
 
+    
 class Cliente(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)

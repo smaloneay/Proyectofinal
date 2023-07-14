@@ -4,7 +4,7 @@
     <div class="row aling-items-center my-5">
         <h1 class="pb-lg-3 text-bg-light">
     {% block INDEX_TITULO %}
-    PAGINA PRINCIPAL
+            <center>Tercer entrega de Pyhton</center>
     {% endblock INDEX_TITULO %}
         </h1>
     </div>
@@ -13,19 +13,21 @@
 
        <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
-        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Logo_blackbg.png/800px-Logo_blackbg.png" alt="..." /></div>
         <div class="col-lg-5">
-            <h1 class="font-weight-light">la simoneta</h1>
-            <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-            <a class="btn btn-primary" href="https://wa.me/1134720347" target="_blank">Whatsapp</a>
+            <h1 class="font-weight-light"> Bienvenido </h1>
+            <p>Para ingresar al administrador utilice: Username:admin              Password: 12345
+            </p>
+            <a class="btn btn-primary" href="https://wa.me/11720343347" target="_blank">Whatsapp</a>
         </div>
     </div>
 
     <!-- Content Row-->
     <div class="row gx-4 gx-lg-5">
-        {% include 'Home/card.html' with card="Tarjeta 1"%} 
-        {% include 'Home/card.html' with card="Tarjeta 2"%}
-        {% include 'Home/card.html' with card="Tarjeta 3"%} 
+        {% include 'Home/card.html' with boton="ESTUDIANTES"%} 
+        {% include 'Home/card.html' with boton="PPROFESORES"%}
+        {% include 'Home/card.html' with boton="CURSOS"%} 
+
     </div>
 
     {% endblock INDEX_CONTENIDO %}

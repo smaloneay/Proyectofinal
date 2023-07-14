@@ -39,10 +39,11 @@ def crear_cliente(request: HttpRequest) -> HttpResponse:
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("Producto:home")
+            return redirect("Cliente")
     else:  # request.method == "GET"
         form = ClienteForm()
     return render(request, "Cliente/crear.html", {"form": form})
+
 
 def busqueda(request: HttpRequest)-> HttpResponse:
     cliente_nombre=Cliente.objects.filter(nombre__contains="fia")
