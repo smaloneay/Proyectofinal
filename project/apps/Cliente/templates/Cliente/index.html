@@ -1,16 +1,19 @@
 {% extends 'Home/index.html' %}
 
 {% block INDEX_TITULO %}
-CLIENTES
+ESTUDIANTES
 {% endblock INDEX_TITULO%}
 
 {% block INDEX_CONTENIDO %}
-    {% for Cliente in Cliente %}
+<center>{% for Cliente in Cliente %}
         <h2>{{Cliente.nombre}}</h2>
         <p>{{Cliente.apellido}}</p>
         <p>{{Cliente.nacimiento}}</p>
         <p>{{Cliente.pais_origen_id}}</p>
-    {% endfor %}
+    {% endfor %}</center>
 
-    <a href="{% url 'Home:home' %}">Ir al menu principal</a>
+    <br> </br>
+    
+<center><a href="{% url 'Home:home' %}">MENU</a></center>
+             
 {% endblock INDEX_CONTENIDO %}

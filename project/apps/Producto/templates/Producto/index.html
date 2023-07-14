@@ -2,15 +2,21 @@
 
 
 {% block INDEX_TITULO %}
-    {{ app }}
-
-    
-{% endblock INDEX_TITULO %}
+CURSOS
+{% endblock INDEX_TITULO%}
 
 {% block INDEX_CONTENIDO %}
-    <a href="{% url 'Home:home' %}">Ir al menu principal</a>
+<center>{% for Cliente in Cliente %}
+        <h2>{{Cliente.nombre}}</h2>
+        <p>{{Cliente.apellido}}</p>
+        <p>{{Cliente.nacimiento}}</p>
+        <p>{{Cliente.pais_origen_id}}</p>
+    {% endfor %}</center>
 
-
+    <br> </br>
+    
+<center><a href="{% url 'Home:home' %}">MENU</a></center>
+             
 {% endblock INDEX_CONTENIDO %}
 
 

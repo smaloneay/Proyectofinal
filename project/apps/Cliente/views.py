@@ -12,40 +12,33 @@ def home(request):
     return render(request, "Cliente/index.html", contexto)
     #return render(request,"index.html", {"Cliente", Clientes_registros})
 
-def crear_clientes(request):
-    from datetime import date
-
-    p1= Pais(nombre="Mexico")
-    p2= Pais(nombre= "Peru")
-    p3= Pais(nombre= "Uruguay")
-
-    p1.save()
-    p2.save()
-    p3.save()
-
-    c1= Cliente(nombre="Almendra", apellido="Darwin", nacimiento=date(2015,1,1),pais_origen_id=p1)
-    c2= Cliente(nombre="Pepe", apellido="Jose", nacimiento=date(2000,5,8),pais_origen_id=p2)
-    c3= Cliente(nombre="Juan", apellido="Sanchez", nacimiento=date(2002,2,3),pais_origen_id=p3)
-    c4= Cliente(nombre="Sofia", apellido="Andrio", nacimiento=date(2004,4,5),pais_origen_id=None)
-
-    c1.save()
-    c2.save()
-    c3.save()
-    c4.save()
-    return redirect("Cliente:home")
 
 def crear_cliente(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("Cliente")
+            return redirect("Cliente:home")
     else:  # request.method == "GET"
         form = ClienteForm()
     return render(request, "Cliente/crear.html", {"form": form})
 
 
 def busqueda(request: HttpRequest)-> HttpResponse:
+    if request.method == 'POST':
+        # Obtener el término de búsqueda del formulario
+        termino_busqueda = request.POST.get('termino_busqueda')
+        # Realizar la búsqueda en la base de datos
+        Cliente = Cliente.objects.filter(nombre__icontains=termino_busqueda)
+        # Pasar los resultados de la búsqueda al contexto
+        context = {'Cliente': Cliente}
+        return render(request, 'usuarios/buscar_usuarios.html', context)
+    else:
+        return render(request, 'Cliente/search.html')
+    
+    
+    
+    
     cliente_nombre=Cliente.objects.filter(nombre__contains="fia")
     contexto= {
         "clientes_nombre": cliente_nombre

@@ -1,15 +1,18 @@
-{% extends 'Home/base.html' %}
+{% extends 'Home/index.html' %}
 
-{% block INDEX_TITULO %} Crear cliente {% endblock INDEX_TITULO %}
+{% block INDEX_TITULO %} AGREGAR ESTUDIANTES {% endblock INDEX_TITULO %}
 
 {% block INDEX_CONTENIDO %}
 
 
-    <form action="post">
+    <center><form action="post" enctype="multipart/form-data"> 
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Guardar</button>
-    </form>
+        <button class type="submit">Guardar</button>
+    </form></center>
 
-    <a href="{% url 'Home:home' %}">Ir al menu principal</a>
+    <br> </br>
+
+
+<center><a href="{% url 'Home:home' %}">MENU</a></center>
 {% endblock INDEX_CONTENIDO %}
