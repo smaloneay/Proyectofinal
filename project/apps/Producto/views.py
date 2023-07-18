@@ -16,7 +16,7 @@ from .forms import cursoForm
 
 def home(request):
     cursos_agregados= curso.objects.all()
-    contexto={"cursos": cursos_agregados}
+    contexto={"curso": cursos_agregados}
     return render(request, "Producto/index.html", contexto)
     #return render(request,"index.html", {"Cliente", Clientes_registros})
 
