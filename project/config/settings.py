@@ -16,7 +16,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 import sys
-sys.path.append(str(BASE_DIR/'apps'))
 APPS_DIR = BASE_DIR / "apps"
 sys.path.append(str(APPS_DIR))
 

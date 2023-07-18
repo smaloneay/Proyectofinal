@@ -1,0 +1,18 @@
+{% extends 'Home/index.html' %}
+
+{% block INDEX_TITULO %} AGREGAR CURSOS {% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+
+
+    <center><form action="post"> 
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class type="submit">Guardar</button>
+    </form></center>
+
+    <br> </br>
+
+
+<center><a href="{% url 'Home:home' %}">MENU</a></center>
+{% endblock INDEX_CONTENIDO %}

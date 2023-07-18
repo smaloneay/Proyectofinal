@@ -21,7 +21,7 @@ def home(request):
     #return render(request,"index.html", {"Cliente", Clientes_registros})
 
 
-def crear_cliente(request: HttpRequest) -> HttpResponse:
+def crear_curso(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         form = cursoForm(request.POST)
         if form.is_valid():
@@ -29,4 +29,4 @@ def crear_cliente(request: HttpRequest) -> HttpResponse:
             return redirect("Producto:home")
     else:  # request.method == "GET"
         form = cursoForm()
-    return render(request, "Cliente/crear.html", {"form": form})
+    return render(request, "Producto/crear.html", {"form": form})

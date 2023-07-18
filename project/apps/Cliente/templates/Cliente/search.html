@@ -1,14 +1,24 @@
-{% extends 'Home/index.html' %}
+{% extends 'Home/base.html' %}
 
-{% block INDEX_TITULO %} Busquedas {% endblock INDEX_TITULO %}
+{% block TITULO %} Busquedas {% endblock TITULO %}
 
 {% block CONTENIDO %}
-    <h2> Cliente nombre </h2>
-    {% for cliente in clientes_nombre %}
-    <p>{{ cliente }}</p>
+
+    <h2> Cliente nombre</h2>
+    {% for Cliente in clientes_nombre %}
+        <p>{{ Cliente }}</p>
     {% endfor %}
 
+    <h2> Cliente nacimiento </h2>
+    {% for Cliente in clientes_nacimiento %}
+        <p> {{ Cliente  }}</p>
+    {% endfor %}
 
-    <a href="{% url 'Home:home' %}">Ir al menu principal</a>
+    <h2> Cliente país vacío </h2>
+    {% for Cliente in clientes_pais %}
+        <p> {{ Cliente }}</p>
+    {% endfor %}
 
-{% endblock INDEX_CONTENIDO %}
+    <a href="{% url 'Home:home' %}">Ir al menú principal</a>
+
+{% endblock CONTENIDO %}
