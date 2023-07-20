@@ -12,6 +12,6 @@ contraseña: 12345
 
 #ERRORES
 No encontre la forma de reparar que cuando agrego un celular no se aplica al home principal
-
+y me falta mejorar la parte estetica de la pagina
 
 
