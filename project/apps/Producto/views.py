@@ -1,32 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpRequest, HttpResponse
+from .models import celular
+from .forms import celularForm
 
 def home(request):
     contexto={"app": "Aplicacion Producto "}
     return render(request,"Producto/index.html", contexto)
 
 
-
-from django.shortcuts import render, redirect
-from django.http import HttpRequest, HttpResponse
-from .models import curso
-from .forms import cursoForm
-
-
-
-
 def home(request):
-    cursos_agregados= curso.objects.all()
-    contexto={"curso": cursos_agregados}
+    celular_agregados= celular.objects.all()
+    contexto={"celular": celular_agregados}
     return render(request, "Producto/index.html", contexto)
     #return render(request,"index.html", {"Cliente", Clientes_registros})
 
 
-def crear_curso(request: HttpRequest) -> HttpResponse:
+### Formulario Ingresar Productos###
+def crear_celular(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
-        form = cursoForm(request.POST)
+        form = celularForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("Producto:home")
-    else:  # request.method == "GET"
-        form = cursoForm()
+            return redirect ("Producto:home")
+    else: 
+        form = celularForm()
     return render(request, "Producto/crear.html", {"form": form})

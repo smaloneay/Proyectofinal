@@ -1,10 +1,10 @@
 from django import forms
-from .models import curso
+from .models import celular
 
 
-class cursoForm(forms.ModelForm):
+class celularForm(forms.ModelForm):
     class Meta:
-        model = curso
-        fields= ["nombre","descripcion"]
+        model = celular
+        fields= ["nombre","descripcion","precio","fecha_ingreso","imagen"]
         
         
