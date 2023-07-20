@@ -3,15 +3,22 @@
 
 {% block INDEX_CONTENIDO %}
 
-
-    <center><form action="post"> 
+<div class="bg-black text-warning formulario text-center ">
+    <style>
+        .formulario{
+            padding: 50px;
+            width: 95%;
+            margin: 25px;
+        }
+    </style>
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_p}}
-        <button class type="submit">Guardar</button>
-    </form></center>
+        {{form.as_p}} 
+        <h6>Ingresa una URL de la imagen</h6>
+        <button class="btn btn-danger" type="submit">Guardar</button>
+</div>
 
-    <br> </br>
+<center><a class="text-center" href="{% url 'Producto:home' %}">Volver </a> </center>
+<center><a class="text-center" href="{% url 'Home:home' %}">Home</a></center>
 
-
-<center><a href="{% url 'Home:home' %}">MENU</a></center>
 {% endblock INDEX_CONTENIDO %}

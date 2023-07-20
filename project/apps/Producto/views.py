@@ -25,3 +25,4 @@ def crear_celular(request: HttpRequest) -> HttpResponse:
     else: 
         form = celularForm()
     return render(request, "Producto/crear.html", {"form": form})
+
